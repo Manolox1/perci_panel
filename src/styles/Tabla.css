@@ -1,0 +1,41 @@
+.title{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 50px 0;
+}
+.title button{
+    border: none;
+    border-radius: 20px;
+    background-color: rgb(76, 222, 130);
+    margin-left: 50px;
+}
+
+
+tbody{
+    padding: 5px;
+}
+
+tbody button{
+    border: none;
+}
+
+tbody .edit{
+    background-color: rgb(228, 228, 145);
+    border-radius: 5px 0 0 5px ;
+}
+
+tbody .borrar{
+    background-color: rgb(212, 123, 123);
+    border-radius: 0 5px 5px 0 ;
+}
+
+tbody .edit:active{
+    background-color: rgb(222, 222, 88);
+    border-radius: 5px 0 0 5px ;
+}
+
+tbody .borrar:active{
+    background-color: rgb(209, 88, 88);
+    border-radius: 0 5px 5px 0 ;
+}
