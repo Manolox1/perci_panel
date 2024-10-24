@@ -56,6 +56,14 @@ const Tabla = () => {
         return () => unsub();
     }, []);
 
+    const formatearPrecio = (precio) => {
+        const numero = Number(precio);
+        if (isNaN(numero)) return '0'; // Manejar casos donde el precio no es un número
+    
+        // Convertir a string y usar regex para formatear
+        return numero.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    };
+
     return (
             <div className='container'>
                 <div className="title">
@@ -79,7 +87,9 @@ const Tabla = () => {
                                     <td>{p.titulo}</td>
                                     <td>{p.categoria}</td>
                                     <td>{p.ingredientes+" "}</td>
-                                    <td>${p.precio}</td>
+                                    <td>
+                                        ${formatearPrecio(p.precio)}
+                                    </td>
                                     <td>
                                         <button className="edit" onClick={()=>alternarEditActivo(p)}>Editar</button>
                                         <button className="borrar" onClick={()=>eliminar(p)}>Eliminar</button>

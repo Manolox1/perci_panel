@@ -1,16 +1,17 @@
 import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
-import { actualizar, uploadFiles } from "../firebase/config";
+import { actualizar } from "../firebase/config";
+import { getDownloadURL, getStorage, ref } from "firebase/storage";
 import "../styles/Form.css"
 
 const FormEdit = (datoss) => {
     const [inputValue, setInputValue] = useState('');
     const [ingredientes, setingredientes] = useState([]);
     const [id, setId] = useState("")
-    const [file, setFile] = useState(null)
     const [titulo, setTitulo] = useState("")
     const [precio, setPrecio] = useState("")
     const [categoria, setCategoria] = useState("")
+    const [imageURL, setImageURL] = useState(null); // Estado para la URL de la imagen
 
     const cargar =()=>{
         setId(datoss.datoss.id)
@@ -47,32 +48,29 @@ const FormEdit = (datoss) => {
 
     const handleActualizar =(e) => {
         e.preventDefault()
-        uploadFiles(file, titulo)
         actualizar(id, titulo, ingredientes, precio, categoria); // Llama a la función actualizar de config.js
     };
     
     useEffect(()=>{
         cargar();
     },[]);
+    useEffect(() => {
+        // Función para obtener la URL y el nombre del archivo desde Firestore Storage
+        const fetchImageURL = async () => {
+            const storage = getStorage();
+            const imageRef = ref(storage, `platos/${datoss.datoss.titulo}`); // Cambia por tu referencia
+            const url = await getDownloadURL(imageRef); // Obtenemos la URL
+            setImageURL(url); // Guardamos la URL en el estado 
+            };
+        
+            fetchImageURL();
+        }, []);
 
     return (
     <div className="agregar">
                     <form onSubmit={handleActualizar} onKeyDown={evitar}>
-                        <h1>Subir Plato</h1>
-
-                        <input type="text" 
-                        placeholder="Nombre del Plato"
-                        value={titulo} 
-                        onChange={e=>{
-                        setTitulo(e.target.value)
-                        }}/>
-                            
-                        <input type="file" 
-                        value={file? undefined:""} 
-                        onChange={e=>{
-                        setFile(e.target.files[0])
-                        }}/>
-
+                        <h2>{titulo}</h2>
+                        <img src={imageURL} alt="" style={{width:"300px"}}/>
                         <select name="" id=""
                         value={categoria}
                         onChange={
@@ -83,6 +81,7 @@ const FormEdit = (datoss) => {
                             }
                         }>
                             <option value="Promos">Promos</option>
+                            <option value="Postres">Postres</option>
                             <option value="Carnes">Carnes</option>
                             <option value="Ensaladas">Ensaladas</option>
                             <option value="Vinos y Tragos">Vinos y Tragos</option>
@@ -93,6 +92,7 @@ const FormEdit = (datoss) => {
                             <option value="Tortas">Tortas</option>
                             <option value="Sandwiches">Sandwiches</option>
                             <option value="Pastas">Pastas</option>
+                            <option value="Milanesas">Milanesas</option>
                         </select>
 
                         <div className="group-file">

@@ -14,7 +14,8 @@ form{
     text-align: center;
 }
 
-form input, form select{
+
+form input, form select, form img{
     width: 300px;
     margin: 10px auto;
     padding: 5px;
