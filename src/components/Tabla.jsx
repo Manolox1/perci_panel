@@ -90,7 +90,7 @@ const Tabla = () => {
                                     <td>
                                         ${formatearPrecio(p.precio)}
                                     </td>
-                                    <td>
+                                    <td className="btns">
                                         <button className="edit" onClick={()=>alternarEditActivo(p)}>Editar</button>
                                         <button className="borrar" onClick={()=>eliminar(p)}>Eliminar</button>
                                     </td>

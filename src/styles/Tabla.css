@@ -20,22 +20,26 @@ tbody button{
     border: none;
 }
 
+
 tbody .edit{
+    padding: 5px 0 5px 0;
+    width: 70px;
     background-color: rgb(228, 228, 145);
-    border-radius: 5px 0 0 5px ;
+
 }
 
 tbody .borrar{
+    margin-top: 5px;
+    padding: 5px 0 5px 0;
+    width: 70px;
     background-color: rgb(212, 123, 123);
-    border-radius: 0 5px 5px 0 ;
+
 }
 
 tbody .edit:active{
     background-color: rgb(222, 222, 88);
-    border-radius: 5px 0 0 5px ;
 }
 
 tbody .borrar:active{
     background-color: rgb(209, 88, 88);
-    border-radius: 0 5px 5px 0 ;
 }
