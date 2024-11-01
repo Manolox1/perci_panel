@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 import { collection, onSnapshot} from 'firebase/firestore';
-import { auth, db, eliminar } from "../firebase/config";
+import { auth, db } from "../firebase/config";
 import { Table } from "react-bootstrap";
 import Modals from "./Modal";
 import ModalEdit from "./ModalEdit";
+import ModalEliminar from "./ModalEliminar";
 import "../styles/Tabla.css"
 import { signOut } from "firebase/auth";
 
@@ -38,9 +39,21 @@ const Tabla = () => {
             return { isModalEditOpen, alternarEditActivo };
         }
     
+    function useActivoEliminar() {
+            const [isModalEliminarOpen, setIsModalEliminarOpen] = useState(false);
+                
+                function alternarEliminarActivo(p) {
+                    setIsModalEliminarOpen(prevActivo => !prevActivo);
+                    setTextEdit(p)
+                }
+                
+                return { isModalEliminarOpen, alternarEliminarActivo };
+            }
+    
 
     const { isModalOpen, alternarActivo } = useActivo();
     const { isModalEditOpen, alternarEditActivo } = useActivoEdit();
+    const { isModalEliminarOpen, alternarEliminarActivo } = useActivoEliminar();
         
 
     useEffect(() => {
@@ -64,6 +77,7 @@ const Tabla = () => {
         // Convertir a string y usar regex para formatear
         return numero.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
     };
+
 
     return (
             <div className='container'>
@@ -94,7 +108,7 @@ const Tabla = () => {
                                     </td>
                                     <td className="btns">
                                         <button className="edit" onClick={()=>alternarEditActivo(p)}>Editar</button>
-                                        <button className="borrar" onClick={()=>eliminar(p)}>Eliminar</button>
+                                        <button className="borrar" onClick={()=>alternarEliminarActivo(p)}>Eliminar</button>
                                     </td>
                                 </tr>
                             ))
@@ -103,6 +117,7 @@ const Tabla = () => {
                 </Table>
                 <Modals isOpen={isModalOpen} closeModal={alternarActivo}></Modals>
                 <ModalEdit isOpen={isModalEditOpen} closeModal={alternarEditActivo} datos={textEdit}></ModalEdit>
+                <ModalEliminar isOpen={isModalEliminarOpen} closeModal={alternarEliminarActivo} datos={textEdit}></ModalEliminar>
             </div>
     )
 }

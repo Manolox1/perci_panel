@@ -16,7 +16,7 @@ const ModalEdit = ({ isOpen, closeModal, datos}) => {
             </Modal.Body>
             <Modal.Footer>
             <Button variant="secondary" onClick={closeModal}>
-                Cerrar sin Editar
+                Cerrar
             </Button>
             </Modal.Footer>
         </Modal>

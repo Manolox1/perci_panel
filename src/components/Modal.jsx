@@ -8,19 +8,16 @@ const Modals = ({ isOpen, closeModal}) => {
 
     return (
         <Modal show={isOpen} onHide={closeModal}>
-        <Modal.Header closeButton>
-            <Modal.Title>Subir</Modal.Title>
+            <Modal.Header closeButton>
+                <Modal.Title>Subir</Modal.Title>
             </Modal.Header>
             <Modal.Body>
                 <Form></Form>
             </Modal.Body>
             <Modal.Footer>
-            <Button variant="secondary" onClick={closeModal}>
-                Close
-            </Button>
-            <Button variant="primary" onClick={closeModal}>
-                Save Changes
-            </Button>
+                <Button variant="secondary" onClick={closeModal}>
+                    Close
+                </Button>
             </Modal.Footer>
         </Modal>
     );
