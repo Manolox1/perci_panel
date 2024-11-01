@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
 import { collection, onSnapshot} from 'firebase/firestore';
-import { db, eliminar } from "../firebase/config";
+import { auth, db, eliminar } from "../firebase/config";
 import { Table } from "react-bootstrap";
 import Modals from "./Modal";
 import ModalEdit from "./ModalEdit";
 import "../styles/Tabla.css"
+import { signOut } from "firebase/auth";
 
 
 const Tabla = () => {
@@ -69,6 +70,7 @@ const Tabla = () => {
                 <div className="title">
                     <h1>Lista de Platos</h1>
                     <button onClick={alternarActivo}>Subir plato</button>
+                    <button onClick={()=>signOut(auth)}>Cerrar Sesión</button>
                 </div>
                 <Table>
                     <thead>

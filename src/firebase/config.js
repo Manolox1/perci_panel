@@ -1,6 +1,7 @@
 import { initializeApp } from "firebase/app";
 import {getStorage, ref, uploadBytes} from "firebase/storage"
 import { doc,addDoc, collection, getFirestore, deleteDoc, updateDoc} from "firebase/firestore";
+import { getAuth } from "firebase/auth";
 //import { getFirestore} from "firebase/firestore";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -21,6 +22,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app)
 export const storage = getStorage(app)
+export const auth = getAuth(app)
 
 export function uploadFiles(file, name){
     const storageRef = ref(storage, "platos/" + name)

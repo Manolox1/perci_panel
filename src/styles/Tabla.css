@@ -11,6 +11,10 @@
     margin-left: 50px;
 }
 
+.title button:last-child{
+    background-color: brown;
+}
+
 
 tbody{
     padding: 5px;

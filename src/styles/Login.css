@@ -1,0 +1,25 @@
+.logincont{
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    place-items: center;
+}
+
+.logincont form{
+    display: flex;
+    border-radius: 20px;
+    background-color: #414141;
+    flex-direction: column;
+    margin: auto;
+    width: 30%;
+    padding: 70px 0;
+}
+
+.logincont form input{
+    width: 90%;
+}
+
+.logincont form button{
+    margin: auto;
+    width: 40%;
+}
