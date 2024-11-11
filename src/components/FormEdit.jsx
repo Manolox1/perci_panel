@@ -85,7 +85,7 @@ const FormEdit = (datoss) => {
                             <option value="Carnes">Carnes</option>
                             <option value="Ensaladas">Ensaladas</option>
                             <option value="Vinos y Tragos">Vinos y Tragos</option>
-                            <option value="Hamburguesas">Hamburguesas</option>
+                            <option value="Burguers">Burguers</option>
                             <option value="Bebidas">Bebidas</option>
                             <option value="Revueltos">Revueltos</option>
                             <option value="Cafeteria">Cafeteria</option>

@@ -17,7 +17,7 @@ const ModalEliminar = ({isOpen, closeModal, datos}) => {
                 <Modal.Title>¿Desea eliminar el Item?</Modal.Title>
             </Modal.Header>
             <Modal.Body className='btnsEliminar'>
-                <p>Una vez eliminado no se podram recupar las fotos ni informacion del plato</p>
+                <p>Una vez eliminado no se podran recuperar las fotos ni informacion del plato</p>
                 <Button variant="danger" onClick={()=>eliminarYcerrar()}>
                     Eliminar
                 </Button>
