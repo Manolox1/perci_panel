@@ -91,6 +91,7 @@ const Form = () => {
                             <option value="Sandwiches">Sandwiches</option>
                             <option value="Pastas">Pastas</option>
                             <option value="Milanesas">Milanesas</option>
+                            <option value="Entrantes">Entrantes</option>
                         </select>
 
                         <div className="group-file">
