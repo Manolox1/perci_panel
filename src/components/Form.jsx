@@ -82,16 +82,20 @@ const Form = () => {
                             <option value="Promos">Promos</option>
                             <option value="Carnes">Carnes</option>
                             <option value="Ensaladas">Ensaladas</option>
-                            <option value="Vinos y Tragos">Vinos y Tragos</option>
+                            <option value="Trago">Trago</option>
                             <option value="Burguers">Burguers</option>
                             <option value="Bebidas">Bebidas</option>
                             <option value="Revueltos">Revueltos</option>
-                            <option value="Cafeteria">Cafeteria</option>
+                            <option value="Desayunos">Desayunos</option>
                             <option value="Tortas">Tortas</option>
                             <option value="Sandwiches">Sandwiches</option>
                             <option value="Pastas">Pastas</option>
                             <option value="Milanesas">Milanesas</option>
                             <option value="Entrantes">Entrantes</option>
+                            <option value="Tortas">Tortas</option>
+                            <option value="Postres">Postres</option>
+                            <option value="Cervezas">Cervezas</option>
+                            <option value="Tragos">Tragos</option>
                         </select>
 
                         <div className="group-file">
