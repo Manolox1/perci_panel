@@ -29,8 +29,20 @@ const Login = () => {
         <div className="logincont">
             <form onSubmit={funAuth}>
                 <h1>Ingresar BD Perci</h1> 
-                <input type="text" placeholder="Email" id="mail"/>
-                <input type="password" placeholder="Contraseña" id="password"/>
+                <tbody>
+                    <td>
+                        <tr>
+                            <input className="negro" name="usuario" type="text" placeholder="Email" id="mail"/>
+                        </tr>
+                    </td>
+                    <td>
+                        <tr>
+                            <input className="negro" name="password" type="password" placeholder="Contraseña" id="password"/>
+                        </tr>
+                    </td>
+                </tbody>
+                
+                
                 <button>inicia secion</button>
             </form>
         </div>
